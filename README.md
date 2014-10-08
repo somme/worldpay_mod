@@ -1,8 +1,10 @@
 Styling the Default WorldPay payment page
 =========================================
 
-Upload these files using your Worldpay Payment page editor file management
+
 Replace "your_installation_id" with your own Worldpay installation id in head.html
+ 
+Upload these files using your Worldpay Payment page editor file management
 
 This will do the following:
 
