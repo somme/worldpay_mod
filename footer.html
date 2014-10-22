@@ -1,3 +1,4 @@
+
 								</td>
 							</tr>
 			
@@ -12,9 +13,10 @@
 		</tr>
 	</table>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
 <script>
+
 $( document ).ready(function() {
 	//hide start again
 	$('span').find('b:contains("Start again")').closest('nobr').css( "display", "none" );
@@ -32,17 +34,23 @@ $( document ).ready(function() {
 	$('#region').closest('tr').remove();
 	//remove phone field and label
 	$('#tel').closest('tr').remove();
+	//remove email field and label
+	$('#email').closest('tr').remove();
 	//revove * Indicates a required field
 	$('td').find('em:contains("Indicates a required field")').closest('td').css( "display", "none" );
+	
+
 	//remove asterix
-	var findAsterix = document.querySelectorAll('span,label');
+	var findAsterix = $('span,label');
 	for (var i = 0; i < findAsterix.length; ++i) {
 	  findAsterix[i].innerHTML = findAsterix[i].innerHTML.replace(/\*?/g,'');
 	}
-	var findSpace = document.getElementsByTagName('span');
+
+	var findSpace = $('span');
 	for (var j = 0; j < findSpace.length; ++j) {
 	  findSpace[j].innerHTML = findSpace[j].innerHTML.replace(/\&nbsp;/g,'');
 	}
+
 	//create validation jump links
 	function vaidationLinks(string, id, field){
 		var element = $('ul').find('li:contains("'+string+'")');
