@@ -30,10 +30,17 @@ td.three h2{
 	font-family: Arial,Helvetica,Verdana,Geneva,Sans-Serif !important;
 }
 body td.width190{
-	width:34%;
+	width: auto;
 	/*padding: .4em 0;*/
 }
-	
+body td.one.width190.paymentDetailsL{
+	width: 38%;
+}	
+@-moz-document url-prefix() { 
+  body td.one.width190.paymentDetailsL{
+     width: 240px;
+  }
+}
 body .title h1{
 	font-size: 2em;
 	font-weight: bold;
@@ -111,33 +118,61 @@ table td select{
 	text-align: start;
 }
 
+.table3{
+	*width: auto; /* IE7 and below */
+}
+
 /* payment button */
-label[for="op-PMMakePayment"]{
-	padding: 10px;
-	float: left;
+label.makePayment{
 	border-radius: 10px;
 	background-color: #002469;
 	margin-left: 263px;
+	padding: 10px;
+	float: left;
+	*display: inline-block;/* IE7 and below */
 }
-label[for="op-PMMakePayment"] b{
+
+label.makePayment b{
 	margin-right: 10px;
 }
-label[for="op-PMMakePayment"] span{
+
+label.makePayment span{
 	color: #fff !important;
 	font-family: Arial,Helvetica,Verdana,Geneva,Sans-Serif !important;
+	display: inline-block;
+	margin-left: 40px;
+	*border: solid 1px #002469;/* IE7 and below */
+	*display: inline-block;/* IE7 and below */
+
 }
-label[for="op-PMMakePayment"]:hover{
+label.makePayment:hover{
 	cursor: pointer;
 	cursor: hand;
 	background-color: #333;
-
 }
-label[for="op-PMMakePayment"]:hover b{
+
+label.makePayment:hover b{
 	color: #fff;
 }
-label[for="op-PMMakePayment"] input{
-	float: left;
+label.makePayment input{
+	display: inline-block;
+	position: absolute;
+	margin-left: -200px;
+	margin-top: -2px;
+	margin-top: 2px\9; /* IE8 and below */
+	
 }
+
+*+html label.makePayment input{
+	margin-left: -260px;/* IE7 and below */
+}
+/* IE8 uses \0 */
+@media all\0 { 
+ 	label.makePayment input{
+		margin-left: -260px;
+	}
+}
+
 #required{
 	display: inline-block;
 	margin-top: 10px;
@@ -188,6 +223,7 @@ input#town,
 input#tel,
 input#email{
 	width: 20em;
+	width: 18em\9; /* IE8 and below */
 }
 select[name="country"]{
 	margin-top: .4em;
@@ -222,7 +258,7 @@ a.jumplink:hover{
 }
 .paymentDetailsL{
 	display: block;
-	width:39% !important;
+	/*width:39% !important;*/
 }
 .paymentDetailsR{
 	width:100%;
@@ -240,7 +276,7 @@ body .paymentDetailsTable .width190 span{
 	line-height: 1.6em;
 }
 body .paymentDetailsTable td{
-	padding-bottom: 20px;	
+	padding-bottom: 0px;	
 }
 body .paymentDetailsTable .width190 span .topLabel{
 	margin-bottom: 0;
@@ -255,7 +291,7 @@ body .error span{
 }
 /* mobile */
 body.mobile .two.width190{
-	display:none;
+	/*display:none;*/
 }
 body.mobile .two.width190,
 body.mobile .two,
@@ -270,7 +306,7 @@ body.mobile input#town,
 body.mobile input#tel, 
 body.mobile input#email{
 	width: 100%;
-
+	width: 98%\9; /* IE8 and below */
 }
 body.mobile input[type=text],
 body.mobile select[name=country]{
@@ -280,7 +316,7 @@ body.mobile select[name=country]{
 body.mobile  td.one td.two{
 	padding-right: 10px;
 }
-body.mobile label[for="op-PMMakePayment"]{
+body.mobile label.makePayment{
 	margin-left: 10px;
 }
 body.mobile .cancelLink{
@@ -312,4 +348,3 @@ body.mobile  table td.footer span{
 body.mobile  #print_buttons span em a{
 	font-size: 16px !important;
 }
-

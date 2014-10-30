@@ -1,4 +1,5 @@
 
+
 								</td>
 							</tr>
 			
@@ -28,6 +29,9 @@ $( document ).ready(function() {
 	$('span').find('b:contains("Cancel")').closest('nobr').find('img').css( "display", "none" );
 	//attach cancel link
 	$('label[for="op-PMMakePayment"]').after('<a href="'+cancelLink+'" class="cancelLink">Cancel</a>');
+
+	$('label[for="op-PMMakePayment"]').attr('class', 'makePayment');
+
 	//remove fax field and label
 	$('#fax').closest('tr').remove();
 	//remove region field and label
@@ -38,7 +42,6 @@ $( document ).ready(function() {
 	$('#email').closest('tr').remove();
 	//revove * Indicates a required field
 	$('td').find('em:contains("Indicates a required field")').closest('td').css( "display", "none" );
-	
 
 	//remove asterix
 	var findAsterix = $('span,label');
@@ -98,14 +101,27 @@ $( document ).ready(function() {
 		}
 	});
 	//on window resize detect mobile and add class
-	$(window).on('resize', function(){
-		if ($(window).width() <= 767){
-			$('body').addClass('mobile');
-		} else{
-			$('body').removeClass('mobile');
 
+	function resize(){
+		if ( $(document).width() > 772){
+		$('body').removeClass('mobile');
+			$('body .two.width190').css('display','block');		
+			$('body .paymentDetailsL').css('display','block');		
+		} else{
+			$('body').addClass('mobile');
+			$('body .two.width190').css('display','none');
+			$('body .paymentDetailsL').css('display','none');
 		}
+	}
+	resize();
+
+	$(window).on('resize ready', function(){
+		resize();
 	});
+
+
+		
+
 	//clone label
 	$('label').each(function () {
 		$(this).clone().insertBefore($(this).closest('tr').find('input[type="text"]')).addClass('topLabel');
